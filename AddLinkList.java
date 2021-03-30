@@ -1,4 +1,3 @@
-import java.util.*;
      class Node{
          String data;
      Node next;
@@ -66,7 +65,24 @@ class LinkedList{
            }
            return null;
        } 
-
+       public void insertNode(String data,String element) {
+           Node node=new Node(data);
+            if(head==null)
+            head=tail=node;
+            else
+            {
+                Node a=find(element);
+                if(a!=null)
+                {
+                    node.setNext(a.getNext());
+                    a.setNext(node);
+                    if(a==tail)
+                    tail=node;
+                }
+                else
+                System.out.println("Element not found");
+            }
+       }
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
 		list.addNode("Milan");
@@ -79,5 +95,8 @@ class LinkedList{
         System.out.println("Node found");
     else
         System.out.println("Node not found");
+        list.insertNode("Prague","Munich");
+        list.display();
 	}
+
 }
