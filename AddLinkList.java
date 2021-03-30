@@ -83,6 +83,35 @@ class LinkedList{
                 System.out.println("Element not found");
             }
        }
+       public void delete(String data) {
+		if (this.head == null)
+			System.out.println("List is empty");
+		else {
+			Node node = this.find(data);
+			if (node == null)
+				System.out.println("Node not found");
+			else if (node == this.head) {
+				this.head = this.head.getNext();
+				node.setNext(null);
+				if (node == this.tail)
+					tail = null;
+			} else {
+				Node nodeBefore = null;
+				Node temp = this.head;
+				while (temp != null) {
+					if (temp.getNext() == node) {
+						nodeBefore = temp;
+						break;
+					}
+					temp = temp.getNext();
+				}
+				nodeBefore.setNext(node.getNext());
+				if (node == this.tail)
+					this.tail = nodeBefore;
+				node.setNext(null);
+			}
+		}
+	}
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
 		list.addNode("Milan");
@@ -97,6 +126,8 @@ class LinkedList{
         System.out.println("Node not found");
         list.insertNode("Prague","Munich");
         list.display();
+        list.delete("Venice");
+		list.display();
 	}
 
 }
