@@ -55,7 +55,17 @@ class LinkedList{
              temp=temp.getNext();
          }
      }   
-
+       public Node find(String data)
+       {
+           Node temp=head;
+           while(temp!=null)
+           {
+               if(temp.getData().equals(data))
+               return temp;
+               temp=temp.getNext();
+           }
+           return null;
+       } 
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
@@ -65,5 +75,9 @@ class LinkedList{
 		list.addNode("Vienna");
 		System.out.println("Adding an element to the linked list ");
         list.display();
+        if (list.find("Munich") != null)
+        System.out.println("Node found");
+    else
+        System.out.println("Node not found");
 	}
 }
