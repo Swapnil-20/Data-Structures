@@ -47,9 +47,16 @@ class LinkedList{
                 tail=node;
             }
         }
-        
-}
-class Tester{
+     public  void display() {
+         Node temp=head;
+         while(temp!=null)
+         {
+             System.out.println(temp.getData());
+             temp=temp.getNext();
+         }
+     }   
+
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
 		list.addNode("Milan");
@@ -57,5 +64,6 @@ class Tester{
 		list.addNode("Munich");
 		list.addNode("Vienna");
 		System.out.println("Adding an element to the linked list ");
+        list.display();
 	}
-    }
+}
