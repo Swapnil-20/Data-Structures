@@ -62,6 +62,7 @@ class Stack {
 		else
 			return arr[top--];
 	}
+   
 }
 
 class Tester {
@@ -138,5 +139,18 @@ class Tester {
 			System.out.println("Stack is empty\n");
 		else
 			System.out.println("The element popped out is : " + poppedElement + "\n");
+            if (checkTop(stack)) {
+                System.out.println("The top most element of the stack is an even number");
+            } else {
+                System.out.println("The top most element of the stack is an odd number");
+            }
+            
 	}
+    public static boolean checkTop(Stack stack) {
+      
+        if(stack.peek()%2==0)
+        return true;
+        else
+        return false;
+    }
 }
